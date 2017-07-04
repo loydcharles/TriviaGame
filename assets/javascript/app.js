@@ -1,7 +1,8 @@
-var startScreen;
+var startDisplay;
 var correctAnswerValue = 0;
 var number = 100;
 var intervalId;
+var showImage;
 
 var myQuestions  = [
   {
@@ -37,15 +38,92 @@ var myQuestions  = [
 $(document).ready(function() {
 // Create a function that creates the start button and initial screen
 
-  function initialScreen() {
-    startScreen = "<h1 class='display_area col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2' style='color: red'>Charlotte - Trivia Game</h1>";
-    $(".display_area").html(startScreen);
-    setInterval(thirtySeconds, 1000);
-    $(".display_area").html("Lets start the game");
+  function initialScreen() {    
+    startDisplay = "<h1 class='display_area col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2' style='color: red'>Trivia Game</h1>";
+    $(".display").html(startDisplay);     
   }
 
-  initialScreen();
+  function startScreen() {    
+    startDisplay = "<h2 class='display_area col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2' style='color: red'>Test your knowledge about Charlotte</h2>";
+    $(".display").html(startDisplay);
+  }
+
+  function startGame() {         
+    startDisplay = "<button id='start'><h2>Start</h2></button>";
+    $(".display").html(startDisplay);    
+  }
+
+  $("#start").on("click", function() {
+      run();
+      display();
+  //    $(result).html("Questions Answered Correctly: " + correctAnswerValue);    
+    });
+
+  setInterval(initialScreen, 1000);
+  setInterval(startScreen, 2000);
+  startGame();
+
+
+var images = ["images/bootstrap.png", "images/github-logo.jpg", "images/logo_JavaScript.png"];
+
+// Variable showImage will hold the setInterval when we start the slideshow
+var showImage;
+
+// Count will keep track of the index of the currently displaying picture.
+var count = 0;
+
+// TODO: Use jQuery to run "startSlideshow" when we click the "start" button.
+$("#start").click(startSlideshow);
+
+// TODO: Use jQuery to run "stopSlideshow" when we click the "stop" button.
+$("#stop").click(stopSlideshow);
+
+
+// This function will replace display whatever image it's given
+// in the 'src' attribute of the img tag.
+function displayImage() {
+  $("#image-holder").html("<img src=" + images[count] + " width='400px'>");
+}
+
+function nextImage() {
+  //  TODO: Increment the count by 1.
+  count++;
+
+  // TODO: Show the loading gif in the "image-holder" div.
+  $("#image-holder").html("<img src='images/loading.gif' width='200px'/>");
+
+  // TODO: Use a setTimeout to run displayImage after 1 second.
+  setTimeout(displayImage, 1000);
+
+  // TODO: If the count is the same as the length of the image array, reset the count to 0.
+  if (count === images.length) {
+    count = 0;
+  }
+}
+
+function startSlideshow() {
+
+  // TODO: Use showImage to hold the setInterval to run nextImage.
+  showImage = setInterval(nextImage, 3000);
+
+}
+
+function stopSlideshow() {
+
+  // TODO: Put our clearInterval here:
+  clearInterval(showImage);
+
+}
+
+// This will run the display image function as soon as the page loads.
+displayImage();
+
+
+
+  
 });
+
+
 
 
 $("#start").on("click", function() {
@@ -112,27 +190,3 @@ $('#result').on('change', 'input', function() {
   }  
 });
 
-function run() {
-  intervalId = setInterval(decrement, 1000);
-}
-
-//  The decrement function.
-function decrement() {
-
-  //  Decrease number by one.
-  number--;
-
-  //  Show the number in the #show-number tag.
-  $("#time-left").html("<h2>" + number + "</h2>");
-
-
-  //  Once number hits zero...
-  if (number === 0) {
-
-    //  ...run the stop function.
-    stop();
-
-    //  Alert the user that time is up.
-    alert("Time Up!");
-  }
-}
