@@ -1,0 +1,8 @@
+/* Students: Our work lies in the js file. */
+
+body { /* Visual */
+    background-image: url("C:/Users/Loyd Charles/Google Drive/BootCamp/Code/HomeWork/HomeWork-5/TriviaGame/assets/images/CLTskyline.jpg");
+    background-color: #cccccc;
+    background-origin: content-box;
+    background-size: 100%;
+}
