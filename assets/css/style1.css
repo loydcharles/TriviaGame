@@ -3,15 +3,14 @@
 body { /* Visual */	
     background-image: url('http://www.charlottefive.com/wp-content/uploads/2015/04/charlotte-skyline-image.jpeg.jpg');        
 	background-attachment: fixed;
-    background-position: center;
+    background-position: center; 
     background-color: #cccccc;
-    background-origin: content-box;
+    background-origin: content-box;    
     background-size: 100%;
-    background-repeat: repeat-x;
 }
 
 
-  #question-holder, #answer-holder {
+  #image-holder {
 
     /* Positioning */
      margin: 0 auto;
@@ -21,8 +20,6 @@ body { /* Visual */
 
     /* Typography */
     text-align: center;
-	color: red;
-    font-size: 20px;
 
   }
 

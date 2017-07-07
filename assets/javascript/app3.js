@@ -64,17 +64,16 @@ function displayQuestion() {
 }
 
 function nextQuestion() {
-  count++;
+  
   setTimeout(displayQuestion, 2500);
 
-  if(count === myQuestions.length) {
-    count = 0;
+  if(count == myQuestions.length) {
     stopQuestion();
-  }  
+  }
+  count++;
 }
 
 function startQuestion() {
-  count = 0;
   showQuestion = setInterval(nextQuestion, 10000);
 }
 

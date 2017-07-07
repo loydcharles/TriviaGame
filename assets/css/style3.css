@@ -1,0 +1,43 @@
+/* Students: Our work lies in the js file. */
+
+body { /* Visual */	
+    background-image: url('http://www.charlottefive.com/wp-content/uploads/2015/04/charlotte-skyline-image.jpeg.jpg');        
+	background-attachment: fixed;
+    background-position: center; 
+    background-color: #cccccc;
+    background-origin: content-box;    
+    background-size: 100%;
+}
+
+#image-holder {
+
+	/* Positioning */
+	margin: 0 auto;
+
+	/* Box-model */
+	width: 400px;
+
+	/* Typography */
+	text-align: center;
+
+}
+
+#startButton {
+
+	/* Positioning */
+	margin: 25px 0;
+
+	/* Typography */
+	text-align: center;
+
+}
+
+button {
+
+	/* Box-model */
+	width: 200px;
+	height: 50px;
+
+}
+
+
